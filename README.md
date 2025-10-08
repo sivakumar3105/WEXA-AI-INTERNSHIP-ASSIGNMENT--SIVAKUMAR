@@ -1,180 +1,85 @@
-\# DevOps Internship Assessment – Next.js Containerization \& Deployment
+# DevOps Internship Assessment – Next.js App Containerization & Deployment
 
+## About this project
+This is my DevOps internship assignment. I containerized a **Next.js app** using Docker, set up **GitHub Actions** to automatically build and push the Docker image, and deployed it on **Kubernetes (Minikube)**.  
 
+The Docker image is pushed to **GitHub Container Registry (GHCR)** so anyone can run it locally or in Kubernetes.  
 
-\## Project Summary
-
-This project demonstrates the \*\*containerization and deployment of a Next.js application\*\* using Docker, automated CI/CD with GitHub Actions, and deployment to Kubernetes using Minikube. The Docker image is published on \*\*GitHub Container Registry (GHCR)\*\*, allowing the application to be run locally or in a Kubernetes cluster. The repository includes all source code, Dockerfile, GitHub Actions workflow, and Kubernetes manifests, along with step-by-step instructions for setup and deployment.
-
-
-
----
-
-
-
-\## Project Overview
-
-This repository contains a \*\*Next.js application\*\* that has been fully containerized and automated for deployment. The workflow covers:
-
-
-
-\- Docker containerization with best practices  
-
-\- Automated CI/CD using GitHub Actions and GHCR  
-
-\- Deployment on Kubernetes (Minikube)  
-
-\- Complete documentation for setup, running, and verification  
-
-
+All files like code, Dockerfile, workflow, and Kubernetes manifests are in this repo.
 
 ---
 
-
-
-\## Objectives
-
-\- Containerize a Next.js application following best practices  
-
-\- Automate Docker image build and push to \*\*GHCR\*\* using GitHub Actions  
-
-\- Deploy the containerized application to \*\*Kubernetes\*\* using Minikube  
-
-\- Provide clear documentation and instructions for local setup, container usage, and deployment  
-
-
+## Repo Contents
+- **Dockerfile** – for building the Next.js app image  
+- **.github/workflows/docker-build.yml** – GitHub Actions workflow  
+- **k8s/deployment.yaml** – Kubernetes deployment  
+- **k8s/service.yaml** – Kubernetes service  
+- **pages/** – Next.js app code  
+- **public/** – static assets  
+- **package.json** – Node.js dependencies  
+- **README.md** – instructions (this file)  
 
 ---
 
+## My Environment & Setup (Used for Testing)
 
+**System Details**  
+- **Device Name:** SIVALAPTOP  
+- **Processor:** 13th Gen Intel(R) Core(TM) i7-13620H (2.40 GHz)  
+- **Installed RAM:** 16 GB (15.7 GB usable)  
+- **System Type:** 64-bit OS, x64-based processor  
+- **Edition:** Windows 11 Home Single Language  
+- **Version:** 24H2  
+- **Installed on:** 26-04-2025  
+- **OS Build:** 26100.6584  
+- **Serial Number:** PF573X40  
+- **Windows Feature Experience Pack:** 1000.26100.234.0  
+   
 
-\## Repository Structure
+**Software Versions Used**  
+- **Node.js:** v20.x (for running the Next.js app)  
+- **npm:** v9.x (package manager for Node.js)  
+- **Docker Desktop:** 4.x (with WSL 2 backend)  
+- **Docker Engine:** 24.x  
+- **Minikube:** v1.30.x (local Kubernetes cluster)  
+- **kubectl:** v1.30.x (for managing Kubernetes resources)  
+- **Browser for testing:** Chrome / Edge  
 
-
-
-├── Dockerfile # Docker configuration for Next.js app
-
-├── .github/
-
-│ └── workflows/
-
-│ └── docker-build.yml # GitHub Actions workflow for CI/CD
-
-├── k8s/
-
-│ ├── deployment.yaml # Kubernetes deployment manifest
-
-│ └── service.yaml # Kubernetes service manifest
-
-├── pages/ # Next.js application source code
-
-├── public/ # Static assets
-
-├── package.json # Node.js dependencies
-
-└── README.md # Project documentation
+**Notes from Testing**  
+- This laptop was used to run Docker, Minikube, and test the Next.js app.  
+- RAM and CPU were sufficient to run multiple containers and a local Kubernetes cluster smoothly.  
+- Building Docker images, pushing to GHCR, and deploying to Minikube were tested and successful.  
+- In port 3000  worked correctly.  
 
 ---
 
+## Steps I Followed to Run the Project
 
-
-\## Setup Instructions
-
-
-
-\### 1. Clone the Repository
-
+### 1. Clone the Repo
 ```bash
-
 git clone https://github.com/sivakumar3105/WEXA-AI-INTERNSHIP-ASSIGNMENT--SIVAKUMAR.git
-
 cd WEXA-AI-INTERNSHIP-ASSIGNMENT--SIVAKUMAR
 
-
-
-2\. Build and Run Locally Using Docker
-
+2. Build and Run Locally Using Docker
 docker build -t nextjs-app .
-
 docker run -d -p 3000:3000 nextjs-app
-
-
-
-
-
 Open your browser at http://localhost:3000
-
-
-
-3\. GitHub Actions CI/CD
-
-
-
+3. GitHub Actions CI/CD
 On push to the main branch, the workflow will:
-
-
-
 Build the Docker image
-
-
-
 Tag the image with latest
-
-
-
 Push it to GitHub Container Registry (GHCR):
-
-
-
 ghcr.io/sivakumar3105/wexa-ai-internship-assignment/nextjs-app:latest
-
-
-
-4\. Kubernetes Deployment (Minikube)
-
+4. Kubernetes Deployment (Minikube)
 Deploy Application
-
 kubectl apply -f k8s/deployment.yaml
-
 kubectl apply -f k8s/service.yaml
-
-
-
 Access Application
-
 minikube service nextjs-app
-
-
-
-
-
-Opens the application in your default browser.
-
-
-
-5\. Optional: Port Conflicts
-
-
-
-If port 3000 is already in use, run on an alternative port:
-
-
-
-docker run -d -p 3001:3000 ghcr.io/sivakumar3105/wexa-ai-internship-assignment/nextjs-app:latest
-
-
-
-
-
-Access via http://localhost:3001
-
+Opens the application in default browser.
 Links
-
-
-
 GitHub Repository: https://github.com/sivakumar3105/WEXA-AI-INTERNSHIP-ASSIGNMENT--SIVAKUMAR
-
-
-
 Docker Image (GHCR): ghcr.io/sivakumar3105/wexa-ai-internship-assignment/nextjs-app:latest
 
+Workflow Diagram:
+Code → Docker → GitHub Actions → GHCR → Minikube → Browser
