@@ -55,7 +55,7 @@ All files like code, Dockerfile, workflow, and Kubernetes manifests are in this 
 
 ## Steps I Followed to Run the Project
 
-### 1. Clone the Repo
+ 1. Clone the Repo
 ```bash
 git clone https://github.com/sivakumar3105/WEXA-AI-INTERNSHIP-ASSIGNMENT--SIVAKUMAR.git
 cd WEXA-AI-INTERNSHIP-ASSIGNMENT--SIVAKUMAR
