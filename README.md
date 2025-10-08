@@ -30,12 +30,7 @@ All files like code, Dockerfile, workflow, and Kubernetes manifests are in this 
 - **System Type:** 64-bit OS, x64-based processor  
 - **Edition:** Windows 11 Home Single Language  
 - **Version:** 24H2  
-- **Installed on:** 26-04-2025  
-- **OS Build:** 26100.6584  
-- **Serial Number:** PF573X40  
-- **Windows Feature Experience Pack:** 1000.26100.234.0  
-   
-
+  
 **Software Versions Used**  
 - **Node.js:** v20.x (for running the Next.js app)  
 - **npm:** v9.x (package manager for Node.js)  
